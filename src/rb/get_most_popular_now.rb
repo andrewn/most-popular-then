@@ -7,8 +7,13 @@ require 'uuid'
 
 require 'logger'
 
+# Mins between polling
+FREQ = 5
+
 logger = Logger.new( "output.log" )
 logger.info("Starting")
+
+
 # Define some helper classes
 class BBCNews
   include Typhoeus
@@ -37,7 +42,7 @@ end
 
 class MostPopularItem
   
-  attr_accessor :position, :story_url, :story_title, :story_id, :date, :type
+  attr_accessor :position, :story_url, :story_title, :story_id, :date, :type, :freq
   
   def inspect
     "MostPopularNow #{@story_url}"
@@ -50,7 +55,8 @@ class MostPopularItem
       "story_id" => @story_id,
       "story_title" => @story_title,
       "date" => @date,
-      "type" => @type
+      "type" => @type,
+      "freq" => @freq
     }
     
     return JSON.pretty_generate( struct )
@@ -109,6 +115,7 @@ most_popular_blocks.each_with_index do | most_popular_block, index |
 	  item_as_object = MostPopularItem.parseHTML( most_pop_item )
 	  item_as_object.date = date
 	  item_as_object.type = type
+	  item_as_object.freq = FREQ
 	  
 	  json = item_as_object.to_json
 	  uuid = UUID.create_v5( json, UUID::NameSpace_URL).to_s
