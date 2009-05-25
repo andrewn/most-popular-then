@@ -37,7 +37,7 @@ end
 
 class MostPopularItem
   
-  attr_accessor :position, :story_url, :story_id, :date, :type
+  attr_accessor :position, :story_url, :story_title, :story_id, :date, :type
   
   def inspect
     "MostPopularNow #{@story_url}"
@@ -48,6 +48,7 @@ class MostPopularItem
       "position" => @position,
       "story_url" => @story_url,
       "story_id" => @story_id,
+      "story_title" => @story_title,
       "date" => @date,
       "type" => @type
     }
@@ -66,6 +67,7 @@ class MostPopularItem
     mpi.position  = self.get_position_from_class_name( fragment.attributes["class"].to_s )
     mpi.story_url = fragment.search("a")[0].attributes["href"].to_s
     mpi.story_id  = self.url_to_story_id(mpi.story_url).to_s
+    mpi.story_title = fragment.search("a")[0].inner_html.to_s.gsub(/<img src="http:\/\/newsimg.bbc.co.uk\/nol\/shared\/img\/v3\/icons\/video_single.gif" border="0" vspace="2" height="13" hspace="0" alt="video" align="left" width="20" \/>/, "").strip()
     
     return mpi;
   end
@@ -112,7 +114,8 @@ most_popular_blocks.each_with_index do | most_popular_block, index |
 	  uuid = UUID.create_v5( json, UUID::NameSpace_URL).to_s
 	  
   	# Push to couchdb
-  	db.put( uuid, json )
+  	r = db.put( uuid, json )
+  	logger.info( r )
 	end
 # End
 end
