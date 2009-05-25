@@ -109,7 +109,7 @@ most_popular_blocks.each_with_index do | most_popular_block, index |
 	  uuid = UUID.create_v5( json, UUID::NameSpace_URL).to_s
 	  
   	# Push to couchdb
-  	p db.put( uuid, json )
+  	db.put( uuid, json )
 	end
 # End
 end
