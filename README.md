@@ -7,6 +7,7 @@ Capture
 ---
 
 Capture is a ruby script that:
+
  *	Grabs the front page HTML 
  *	Extracts the most read/shared/watched_listened lists
  *	Chucks each most popular item into a couchdb instance
