@@ -5,8 +5,8 @@ ENVS = {
 	:log_name  => "runs.log"
   },
   :production => {
-	:base_path => "/var/www/html/mpi",
-	:log_path  => "/var/app/mpi",
+	:base_path => "~/apps/mpi",
+	:log_path  => "~/apps/mpi",
 	:log_name  => "runs.log"
   }
 }
