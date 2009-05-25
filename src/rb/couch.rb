@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'typhoeus'
-require 'JSON'
+require 'json'
 
 module Couch
 	class Server
