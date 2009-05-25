@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'typhoeus'
 require 'hpricot'
-require 'JSON'
+require 'json'
 require 'couch'
 require 'uuid'
 

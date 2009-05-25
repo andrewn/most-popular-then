@@ -21,7 +21,7 @@ role :app, "andrew@andrewnicolaou.co.uk"
 
 #
 # Override some of the default tasks to do nothing
-#  as they're rails-specific
+#  as they're rails-+specific+
 #
 namespace :deploy do
   # :setup, :update, :update_code, :finalize_update, :symlink
