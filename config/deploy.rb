@@ -12,7 +12,7 @@ default_run_options[:pty] = true
 # If you aren't deploying to /u/apps/#{application} on the target
 # servers (which is the default), you can specify the actual location
 # via the :deploy_to variable:
-set :deploy_to, "/var/www/apps/#{application}"
+set :deploy_to, "~/apps/#{application}"
 
 role :app, "andrew@andrewnicolaou.co.uk"
 #role :web, "your web-server here"
