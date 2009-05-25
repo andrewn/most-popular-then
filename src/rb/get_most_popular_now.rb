@@ -5,7 +5,7 @@ require 'json'
 require 'couch'
 require 'uuid'
 
-# Define some helper classes
+# Define some helper classes
 class BBCNews
   include Typhoeus
   
