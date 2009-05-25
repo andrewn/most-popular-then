@@ -5,6 +5,10 @@ require 'json'
 require 'couch'
 require 'uuid'
 
+require 'logger'
+
+logger = Logger.new( "output.log" )
+logger.info("Starting")
 # Define some helper classes
 class BBCNews
   include Typhoeus
@@ -96,7 +100,6 @@ most_popular_blocks.each_with_index do | most_popular_block, index |
   
 	# Extract list
 	most_pop_items = most_popular_block.search( "li" ) 
-	puts most_pop_items.length
 	
 	# For each most pop items
 	most_pop_items.each do | most_pop_item |	  
@@ -113,3 +116,5 @@ most_popular_blocks.each_with_index do | most_popular_block, index |
 	end
 # End
 end
+
+logger.info("Ending")
