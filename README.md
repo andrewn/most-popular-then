@@ -12,5 +12,5 @@ Capture is a ruby script that:
  *	Extracts the most read/shared/watched_listened lists
  *	Chucks each most popular item into a couchdb instance
 
-Capture runs every 5 mins.
+Capture runs every 15 mins.
 

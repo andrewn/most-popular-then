@@ -8,7 +8,7 @@ require 'uuid'
 require 'logger'
 
 # Mins between polling
-FREQ = 5
+FREQ = 15
 
 logger = Logger.new( "output.log" )
 logger.info("Starting")
